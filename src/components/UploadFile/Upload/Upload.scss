@@ -1,0 +1,136 @@
+$bg_orange_primary: #feeedb;
+$white_color: #ffffff;
+$border_color: #ccd1d9;
+$gray_50: #f4f4f4;
+$text_color: #1a1a1a;
+$d_background_opacity: #0000004d;
+$shadow_neutral_10: #000000a6;
+
+.sdk-upload {
+  position: relative;
+  &__btn {
+    font-weight: bolder;
+    font-size: 16px;
+    // color: var(--primary-color-1);
+    border: 0;
+    background: $white_color !important;
+    border-radius: 8px;
+    height: 32px;
+    width: 120px;
+    box-sizing: border-box;
+    padding: 4px 12px;
+    cursor: pointer;
+  }
+  &__btn:hover {
+    // background-color: var(--primary-color-1) !important;
+    color: $white_color;
+    transition: 0.3s ease;
+  }
+  input {
+    display: none;
+  }
+  .sdk-isDrag {
+    // border: 1px dashed var(--primary-color-1);
+    background-color: $bg_orange_primary;
+  }
+}
+
+.sdk-upload-file {
+  width: 100%;
+  height: 180px;
+  border: 1px dashed $border_color;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: $gray_50;
+  padding: 23px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  &__format {
+    color: $text_color;
+    margin: 8px 0 20px 0;
+    span {
+      display: block;
+    }
+  }
+}
+
+.sdk-preview-file {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  &__main {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    div {
+      margin: 12px;
+      background: $d_background_opacity;
+      cursor: pointer;
+      height: fit-content;
+    }
+  }
+
+  &__delete {
+    border-radius: 25px;
+    padding: 8px 10px;
+  }
+  &__upload {
+    border-radius: 20px;
+    padding: 6px;
+  }
+  &__btn {
+    position: absolute;
+    bottom: 24px;
+    display: flex;
+    left: calc(50% - 60px);
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin-top: 18px;
+    font-weight: bolder;
+    font-size: 1.6rem;
+    p {
+      margin-left: 6px;
+      color: $white_color;
+    }
+  }
+  .sdk-notify-type {
+    background: $shadow_neutral_10;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1280px) {
+  .sdk-upload-file {
+    height: 164px;
+    &__format {
+      span {
+        display: inline-block;
+      }
+      & > span {
+        margin-right: 4px;
+      }
+    }
+  }
+  .sdk-preview-file {
+    height: 164px;
+    &__content {
+      margin-top: 10px;
+    }
+  }
+}

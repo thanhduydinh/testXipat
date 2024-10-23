@@ -1,0 +1,18 @@
+$gray_50: #f4f4f4;
+
+.sdk-list-file {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 12px;
+  background-color: $gray_50;
+  padding: 16px;
+  display: grid;
+  grid-row-gap: 16px;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1280px) {
+  .sdk-list-file {
+    margin-top: 16px;
+  }
+}
