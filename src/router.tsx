@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 import { PATH } from "./constants/paths";
-import NotFound from "layouts/NotFound";
-import MainLayout from "layouts/MainLayout/MainLayout";
-import Product from "./modules/home/Product/Product";
-import DashBoard from "./modules/home/Dashboard/Dashboard";
+import NotFound from "@/modules/NotFound";
+import MainLayout from "@/layouts/MainLayout";
+import Product from "./modules/Product/Product";
+import DashBoard from "./modules/Dashboard/Dashboard";
 
 // const DashBoard = lazy(() => import("./modules/home/Dashboard/Dashboard"));
 

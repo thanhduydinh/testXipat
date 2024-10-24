@@ -29,7 +29,7 @@ const formatDate = (dateString: string) => {
   return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
 };
 
-interface IndexTableWithViewsSearchFilterSortingProps {
+interface ProductTableProps {
   data: {
     id: string;
     title: string;
@@ -39,9 +39,7 @@ interface IndexTableWithViewsSearchFilterSortingProps {
   }[];
 }
 
-const IndexTableWithViewsSearchFilterSorting: React.FC<
-  IndexTableWithViewsSearchFilterSortingProps
-> = ({ data }) => {
+const ProductTable: React.FC<ProductTableProps> = ({ data }) => {
   console.log(data);
 
   const [itemStrings, setItemStrings] = useState(["All", "Active", "No rule"]);
@@ -215,4 +213,4 @@ const IndexTableWithViewsSearchFilterSorting: React.FC<
   }
 };
 
-export default IndexTableWithViewsSearchFilterSorting;
+export default ProductTable;

@@ -1,3 +1,4 @@
+import { createProduct } from "@/api/product";
 import {
   Button,
   Modal,
@@ -11,23 +12,7 @@ import {
 import { XSmallIcon } from "@shopify/polaris-icons";
 import { useState, useCallback } from "react";
 
-// Giả sử bạn có một hàm gửi yêu cầu POST đến API
-const postProductData = async (data: any) => {
-  try {
-    const response = await fetch("https://6650cfde20f4f4c442763130.mockapi.io/products/product", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
-    return response.json();
-  } catch (error) {
-    console.error("Error posting product data:", error);
-  }
-};
-
-function LargeModal() {
+function AddProductModal() {
   const [active, setActive] = useState(true);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
@@ -35,7 +20,7 @@ function LargeModal() {
     title: "",
     value: "1",
     description: "",
-    rules: [], // Thêm trường rules
+    rules: [],
     errors: {
       title: "",
       value: "",
@@ -95,22 +80,22 @@ function LargeModal() {
   };
 
   const handleSubmit = useCallback(async () => {
-    // Sửa đổi: thêm từ khóa async
     if (validateFields()) {
       const productData = {
         title: formData.title,
-        price: Number(formData.value), // Chuyển đổi giá trị sang kiểu số
+        price: Number(formData.value),
         description: formData.description,
-        imageUrl: selectedFiles[0] ? URL.createObjectURL(selectedFiles[0]) : "", // Giả sử chỉ sử dụng hình ảnh đầu tiên
-        createdAt: new Date().toISOString(), // Thêm thời gian tạo
-        rules: [] // Thêm giá trị cho rules nếu cần
+        imageUrl: selectedFiles[0] ? URL.createObjectURL(selectedFiles[0]) : "",
+        createdAt: new Date().toISOString(),
+        rules: []
       };
 
-      // Gọi hàm gửi dữ liệu lên API
-      await postProductData(productData);
+      const result = await createProduct(productData);
 
-      console.log("Form submitted:", productData);
-      toggleActive();
+      if (result) {
+        console.log("Form submitted:", result);
+        toggleActive();
+      }
     }
   }, [formData, selectedFiles]);
 
@@ -215,4 +200,4 @@ function LargeModal() {
   );
 }
 
-export default LargeModal;
+export default AddProductModal;
