@@ -1,7 +1,5 @@
 import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
-// import { ToastProvider } from "components/Toast";
-// import { useAppDispatch } from "store";
 import Loading from "../components/Loading/Loading";
 import Routes from "../router";
 

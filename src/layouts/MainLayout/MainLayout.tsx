@@ -20,11 +20,11 @@ const MainLayout = () => {
                 onClick: () => navigate("/dashboard")
               },
               {
-                url: "/orders",
-                label: "Orders",
+                url: "/product",
+                label: "product",
                 icon: OrderFilledIcon,
-                selected: location.pathname === "/orders",
-                onClick: () => navigate("/orders")
+                selected: location.pathname === "/product",
+                onClick: () => navigate("/product")
               },
               {
                 url: "/settings",

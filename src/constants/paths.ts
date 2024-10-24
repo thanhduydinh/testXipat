@@ -4,9 +4,3 @@ export const PATH = {
   PRODUCT: "/product",
   REGISTER: "/register"
 };
-
-export const PATH_AUTH = {
-  AUTH: "/auth",
-  LOGIN: "/auth/login",
-  REGISTER: "/auth/register"
-};
