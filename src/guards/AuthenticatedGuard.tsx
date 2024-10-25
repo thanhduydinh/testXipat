@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { PATH_AUTH } from "../constants/paths";
-import { getToken } from "../utils/auth";
+import { getToken } from "../utils/helpers";
 
 interface Props {
   children: ReactNode;

@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { PATH } from "../constants/paths";
-import { getToken } from "../utils/auth";
+import { getToken } from "../utils/helpers";
 
 const PublicGuard = () => {
   const location = useLocation();

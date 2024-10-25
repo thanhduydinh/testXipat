@@ -1,12 +1,10 @@
-import { lazy, Suspense } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 import { PATH } from "./constants/paths";
 import NotFound from "@/modules/NotFound";
 import MainLayout from "@/layouts/MainLayout";
-import Product from "./modules/Product/Product";
+import Product from "./modules/Products/Products";
 import DashBoard from "./modules/Dashboard/Dashboard";
-
-// const DashBoard = lazy(() => import("./modules/home/Dashboard/Dashboard"));
+import Settings from "./modules/Settings/Settings";
 
 const RouterConfig = () => {
   const createRoutes = useRoutes([
@@ -25,6 +23,10 @@ const RouterConfig = () => {
         {
           path: PATH.PRODUCT,
           element: <Product />
+        },
+        {
+          path: PATH.SETTINGS,
+          element: <Settings />
         }
       ]
     },
@@ -33,7 +35,8 @@ const RouterConfig = () => {
       element: <NotFound />
     }
   ]);
-  return <Suspense>{createRoutes}</Suspense>;
+
+  return createRoutes;
 };
 
 export default RouterConfig;

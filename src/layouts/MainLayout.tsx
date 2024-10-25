@@ -7,24 +7,23 @@ const MainLayout = () => {
   const location = useLocation();
   return (
     <Frame
-      // children={<Outlet />}
       navigation={
         <Navigation location={location.pathname}>
           <Navigation.Section
             items={[
               {
                 url: "/dashboard",
-                label: "Home",
+                label: "Dashboard",
                 icon: HomeFilledIcon,
                 selected: location.pathname === "/dashboard",
                 onClick: () => navigate("/dashboard")
               },
               {
-                url: "/product",
-                label: "product",
+                url: "/products",
+                label: "Products",
                 icon: OrderFilledIcon,
-                selected: location.pathname === "/product",
-                onClick: () => navigate("/product")
+                selected: location.pathname === "/products",
+                onClick: () => navigate("/products")
               },
               {
                 url: "/settings",

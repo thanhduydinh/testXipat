@@ -1,6 +1,6 @@
 export const PATH = {
   HOME: "/",
   DASHBOARD: "/dashboard",
-  PRODUCT: "/product",
-  REGISTER: "/register"
+  PRODUCT: "/products",
+  SETTINGS: "/settings"
 };
