@@ -1,4 +1,4 @@
-import { Button } from "@shopify/polaris";
+import { Button, Text } from "@shopify/polaris";
 import ProductTable from "./components/ProductTable";
 import { useEffect, useState } from "react";
 import { createProduct, getProducts } from "@/api/product";
@@ -28,8 +28,10 @@ const Product = () => {
 
   return (
     <div className='bg-white px-6  min-h-svh'>
-      <div className='flex justify-between items-center'>
-        <h1 className='text-2xl text-[#303030] font-semibold py-10'>Products</h1>
+      <div className='flex justify-between items-center pt-8 pb-6'>
+        <Text variant='heading2xl' alignment='start' as='h3'>
+          Products
+        </Text>
 
         <Button variant='secondary' size='large' onClick={toggleModal}>
           Add product

@@ -2,7 +2,7 @@ import DateListPicker from "./components/DateListPicker";
 import LineChart from "./components/LineChart";
 import { useState } from "react";
 import BarChart from "./components/BarChart";
-import { Grid, LegacyCard } from "@shopify/polaris";
+import { Grid, Text, LegacyCard } from "@shopify/polaris";
 
 const DashBoard = () => {
   const [selectedDays, setSelectedDays] = useState<number | null>(null);
@@ -21,7 +21,11 @@ const DashBoard = () => {
 
   return (
     <div className='bg-white px-6 min-h-svh'>
-      <h1 className='text-2xl text-[#303030] font-semibold py-10'>DashBoard</h1>
+      <div className='pt-8 pb-6'>
+        <Text variant='heading2xl' alignment='start' as='h3'>
+          DashBoard
+        </Text>
+      </div>
 
       <div className='mb-4'>
         <DateListPicker onSelectDays={handleSelectDays} />

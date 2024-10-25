@@ -255,11 +255,11 @@ const ProductTable: React.FC<ProductTableProps> = ({ data, onDataChange }) => {
           selectedItemsCount={allResourcesSelected ? "All" : selectedResources.length}
           onSelectionChange={handleSelectionChange}
           headings={[
-            { title: "Product" },
-            { title: "Rules(s)" },
-            { title: "Last update" },
-            { title: "Status" },
-            { title: "Payment status" }
+            { id: "product", title: <span className='text-center w-2/3 block'>Product</span> },
+            { id: "rules", title: "Rules(s)" },
+            { id: "last-update", title: "Last update" },
+            { id: "status", title: "Status" },
+            { id: "actions", title: "" }
           ]}
         >
           {rowMarkup}

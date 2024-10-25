@@ -1,22 +1,12 @@
 import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
-import Loading from "../components/Loading/Loading";
 import Routes from "../router";
 
 const App = () => {
-  // const dispatch = useAppDispatch();
-  // const { isLoginSuccess } = useSelector((state: AppState) => state.auth);
-
-  // useEffect(() => {
-  //   dispatch(doGetProfile());
-  // }, [dispatch, isLoginSuccess]);
-
   return (
     <BrowserRouter>
-      <Suspense fallback={<Loading />}>
-        {/* <ToastProvider> */}
+      <Suspense>
         <Routes />
-        {/* </ToastProvider> */}
       </Suspense>
     </BrowserRouter>
   );

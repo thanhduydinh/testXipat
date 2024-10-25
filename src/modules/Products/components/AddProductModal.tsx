@@ -5,19 +5,19 @@ import { fileToBase64 } from "@/utils/helpers";
 import { AddProductModalProps } from "./type";
 
 function AddProductModal({ isActive, onClose, onSubmit }: AddProductModalProps) {
-  const [selectedFiles, setSelectedFiles] = useState<{ base64: string; name: string }[]>([]);
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     title: "",
     value: "1",
     description: "",
-    rules: [],
     errors: {
       title: "",
       value: "",
       description: "",
       dropZone: ""
     }
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
+  const [selectedFiles, setSelectedFiles] = useState<{ base64: string; name: string }[]>([]);
 
   const handleDrop = async (acceptedFiles: File[]) => {
     if (acceptedFiles.length === 0) {
@@ -84,6 +84,7 @@ function AddProductModal({ isActive, onClose, onSubmit }: AddProductModalProps) 
         rules: []
       };
 
+      setFormData(initialFormData);
       await onSubmit(productData);
       onClose();
     }

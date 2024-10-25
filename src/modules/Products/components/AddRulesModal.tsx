@@ -80,26 +80,6 @@ function AddRulesModal({ isActive, onClose, onSubmit, productData }: AddRulesMod
     return titleValid && startDateValid && endDateValid && rulesValid;
   };
 
-  const handleSubmit = useCallback(async () => {
-    if (validateFields()) {
-      const newProductData: ProductDataProps = {
-        id: productData?.title || crypto.randomUUID(),
-        title: productData?.title || "",
-        price: productData?.price || 0,
-        description: productData?.description || "",
-        imageUrl: productData?.imageUrl || "",
-        titleCampaign: formData.titleCampaign,
-        startDate: Number(formData.startDate),
-        endDate: Number(formData.endDate),
-        createdAt: new Date().toISOString(),
-        rules: formData.rules
-      };
-
-      await onSubmit(newProductData);
-      onClose();
-    }
-  }, [formData, productData, onClose, onSubmit]);
-
   const handleChange = (key: string, newValue: string) => {
     setFormData(prev => ({
       ...prev,
@@ -129,6 +109,26 @@ function AddRulesModal({ isActive, onClose, onSubmit, productData }: AddRulesMod
       rules: [...prev.rules, { buyFrom: 0, buyTo: 0, discountPerItem: 0 }]
     }));
   };
+
+  const handleSubmit = useCallback(async () => {
+    if (validateFields()) {
+      const newProductData: ProductDataProps = {
+        id: productData?.title || crypto.randomUUID(),
+        title: productData?.title || "",
+        price: productData?.price || 0,
+        description: productData?.description || "",
+        imageUrl: productData?.imageUrl || "",
+        titleCampaign: formData.titleCampaign,
+        startDate: Number(formData.startDate),
+        endDate: Number(formData.endDate),
+        createdAt: new Date().toISOString(),
+        rules: formData.rules
+      };
+
+      await onSubmit(newProductData);
+      onClose();
+    }
+  }, [formData, productData, onClose, onSubmit]);
 
   return (
     <Modal
