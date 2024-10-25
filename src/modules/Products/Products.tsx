@@ -6,7 +6,7 @@ import AddProductModal from "./components/AddProductModal";
 import { ProductDataProps } from "./components/type";
 
 const Product = () => {
-  const [data, setData] = useState<ProductDataProps[]>([]);
+  const [products, setProducts] = useState<ProductDataProps[]>([]);
   const [isModalActive, setIsModalActive] = useState(false);
   const toggleModal = () => setIsModalActive(!isModalActive);
 
@@ -16,7 +16,7 @@ const Product = () => {
 
   const handleGetProducts = async () => {
     const res = await getProducts();
-    setData(res || []);
+    setProducts(res || []);
   };
   const handleAddProduct = async (productData: ProductDataProps) => {
     const result = await createProduct(productData);
@@ -38,7 +38,7 @@ const Product = () => {
         </Button>
       </div>
 
-      <ProductTable data={data} onDataChange={handleGetProducts} />
+      <ProductTable data={products} onDataChange={handleGetProducts} />
       <AddProductModal isActive={isModalActive} onClose={toggleModal} onSubmit={handleAddProduct} />
     </div>
   );
